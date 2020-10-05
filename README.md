@@ -17,7 +17,7 @@ fitness = <img src="https://render.githubusercontent.com/render/math?math=s^2 \c
 fitness = <img src="https://render.githubusercontent.com/render/math?math=s^2 \cdot 2^{10} \cdot (p - 9)"> for <img src="https://render.githubusercontent.com/render/math?math=p \ge 10">
 where s denotes the number of steps and p denotes number of points.
 
-This is inspired from other similar projects, however, I've tried adjusting the values and formulas without much 
+This is inspired from other similar projects, however, I've tried adjusting the values and formulas without much improvement.
 
 ## Neural network
 I'm using a fairly small neural network with a single hidden layer with six neurons. The input layer has four neurons where the first three indicates if there is a wall or segment of the snake in front or besides the head of the snake (boolean). The fourth neuron measures the angle to point in relation to the snake direction. The output layer has three neurons with a softmax activation function that determines if the snake should turn left, right og keep going straight.
