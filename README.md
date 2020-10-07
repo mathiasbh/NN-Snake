@@ -30,4 +30,19 @@ Because of the random nature of initial spawn direction of the snake and randoml
 
 
 ## Results
+The following results are based on training for 1099 generations where each generation consists of 200 snakes, each run 10 times. The mutation rate is set at 1%, and the game board size of 10 by 10.
 
+![](Figure/Fitness_generation.png)
+Fitness as a function of generations trained.
+
+
+![](Figure/Score_generation.png)
+Number of "apples" eating (score) as a function of generations trained.
+
+Initially there is a quick improvement of the models in the first few generations with a max score around 8. Next, around generation 70 there is an drastic improvement in fitness and score followed by a more linear improvement in fitness. Unfortunately, the random nature of the game, mutations and crossbreeding does not guarantee a stable converging towards better models between generations, something I hoped running each model multiple times and calculating the average score, number of steps and fitness.
+
+As you can see I only reach about a maximum score just above 20 which obviously does not mean I have solved the game. Maybe I need to run for much longer and hope for a random mutation that drastically improves the model, or figure out a more fitting fitness function.
+
+
+## Future
+If I wish to run for more generations I need to look into optimization of the game as it is rather slow. Each generation runs 200 snakes, 10 times each giving 2 million games run over the course of 1000 generations. I could not get multiprocessing to work with tensorflow and making predictions on the same model in parallel which would greatly reduce runtime, and probably make each model more robust with the ability to increase games run per model.
