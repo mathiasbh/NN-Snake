@@ -2,7 +2,6 @@
 from utils import *
 
 
-
 width = 200
 height = 200
 
@@ -14,10 +13,6 @@ games_per_snake = 10
 # Load model as starting model. This model will be duplicated (population_size) and mutated as new starting generation.
 model_number = 999
 latest_model_name = '__models/04102020_10snakes_simplevision/checkpoint_generation' + str(model_number)
-
-
-
-
 
 
 if __name__ == '__main__':

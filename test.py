@@ -6,7 +6,6 @@ from SnakeGame import *
 height = 400
 width = 400
 
-
 # Load model
 model = NeuralNetwork()
 model.build((None, 4))

@@ -10,10 +10,8 @@ mutation_rate = 0.01
 games_per_snake = 10
 
 
-
-
 if __name__ == '__main__':
-    # 1) Initialize models and snakegames
+    # Initialize models and snakegames
     models = np.array([])
     game = SnakeGame(render=False, player=False, width=width, height=height)
     for m in range(population_size):
