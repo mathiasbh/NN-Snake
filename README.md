@@ -37,7 +37,7 @@ Fitness as a function of generations trained.
 
 
 ![](figure/Score_generation.png)
-Number of "apples" eating (score) as a function of generations trained.
+Number of "apples" eaten (score) as a function of generations trained.
 
 Initially there is a quick improvement of the models in the first few generations with a max score around 8. Next, around generation 70 there is an drastic improvement in fitness and score followed by a more linear improvement in fitness. Unfortunately, the random nature of the game, mutations and crossbreeding does not guarantee a stable converging towards better models between generations, something I hoped running each model multiple times and calculating the average score, number of steps and fitness.
 
