@@ -5,14 +5,16 @@ from utils import *
 width = 200
 height = 200
 
-max_generations = 300
+max_generations = 1001
 population_size = 200
 mutation_rate = 0.01
 games_per_snake = 10
+distance_option = "simple" 
+fitness_option = "mean"
 
 # Load model as starting model. This model will be duplicated (population_size) and mutated as new starting generation.
 model_number = 999
-latest_model_name = '__models/04102020_10snakes_simplevision/checkpoint_generation' + str(model_number)
+latest_model_name = '__models/checkpoint_generation' + str(model_number)
 
 
 if __name__ == '__main__':
@@ -36,7 +38,7 @@ if __name__ == '__main__':
     # Run additional generations and save to models/
     for generation in range(max_generations):
         new_generation_value = generation + model_number + 1
-        models, fitnessGeneration, scoreGeneration = train_step(game, models, mutation_rate, new_generation_value, population_size, max_generations+new_generation_value, games_per_snake)
+        models, fitnessGeneration, scoreGeneration = train_step(game, models, mutation_rate, new_generation_value, population_size, max_generations+new_generation_value, games_per_snake, fitness_option=fitness_option)
         
         fitnessAvg = np.mean(fitnessGeneration)
         fitnessMax = np.max(fitnessGeneration)

@@ -7,10 +7,9 @@ height = 200
 max_generations = 1000
 population_size = 200
 mutation_rate = 0.01
-games_per_snake = 20
-distance_option = "simple" 
-# setting this to anything other than "simple" changes distance option to measuring actual distance to nearest wall rather than boolean value if there is a wall
-# or snake segment on the square right next the the snake head.
+games_per_snake = 10
+distance_option = "simple" # simple: boolean value if wall/segment next to snake head. Otherwise, relative distance to closest wall/segment.
+fitness_option = "mean" # mean, worst, best game for each run.
 
 
 if __name__ == '__main__':
@@ -21,7 +20,7 @@ if __name__ == '__main__':
         models = np.append(models, NeuralNetwork())
 
     for generation in range(max_generations):
-        models, fitnessGeneration, scoreGeneration = train_step(game, models, mutation_rate, generation, population_size, max_generations, games_per_snake, fitness_option='best')
+        models, fitnessGeneration, scoreGeneration = train_step(game, models, mutation_rate, generation, population_size, max_generations, games_per_snake, fitness_option=fitness_option)
         
         fitnessAvg = np.mean(fitnessGeneration)
         fitnessMax = np.max(fitnessGeneration)
