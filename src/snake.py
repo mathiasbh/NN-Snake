@@ -202,7 +202,7 @@ class Snake(object):
         return(theta)
 
 
-    def snake_vision(self, walls, point, width, height, pxsize):
+    def snake_vision(self, walls, point, width, height, pxsize, distance_option="simple"):
         """
             Based on current position and direction of snake (head), calculate input array for neural network.
             Simplest setup:
@@ -213,8 +213,11 @@ class Snake(object):
                 4) angle to "food" relative to snake direction
                 
         """
-        #distances = self.nearst_wall(walls, width, height)
-        distances = self.simple_nearest_wall(walls, pxsize)
+        if distance_option == "simple":
+            distances = self.simple_nearest_wall(walls, pxsize)
+        else:
+            distances = self.nearst_wall(walls, width, height)
+        
         distances.append(self.angle_point(point))
         return([distances])
 
