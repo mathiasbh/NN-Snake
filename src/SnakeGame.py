@@ -16,7 +16,7 @@ off = 15
 
 class SnakeGame(object):
     """docstring for main"""
-    def __init__(self, player=False, render=False, width=400, height=400, FPS=30):
+    def __init__(self, player=False, render=False, width=400, height=400, FPS=30, distance_option="simple"):
         super(SnakeGame, self).__init__()
         
         self.width = width
@@ -42,6 +42,7 @@ class SnakeGame(object):
         self.render = render
         self.player = player
         self.FPS = FPS
+        self.distance_option = distance_option
         
   
         if self.render:
@@ -55,8 +56,8 @@ class SnakeGame(object):
 
 
     def reset(self):
-        self.__init__(player=self.player, render=self.render, width=self.width, height=self.height, FPS=self.FPS)
-        
+        self.__init__(player=self.player, render=self.render, width=self.width, height=self.height, FPS=self.FPS, distance_option=self.distance_option)
+
     def set_fitness(self, new_fitness):
         self.fitness = new_fitness
         
@@ -144,7 +145,7 @@ class SnakeGame(object):
 
 
     def vision(self):
-        return(self.snake.snake_vision(self.walls, self.point, self.width, self.height, pxsize))
+        return(self.snake.snake_vision(self.walls, self.point, self.width, self.height, pxsize, distance_option=self.distance_option))
 
 
     def calculate_fitness(self, ):
