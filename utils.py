@@ -73,9 +73,7 @@ def train_step(game, models, mutation_rate, generation, population_size, max_gen
             game.reset()
 
         # Determine final model. Either pick worst model as baseline, or average between the games.
-        optimal_fitness = np.array(optimal_fitness)
-        print(optimal_fitness)
-        
+        optimal_fitness = np.array(optimal_fitness)        
         
         if fitness_option == 'worst':
             # Worst game of each model
