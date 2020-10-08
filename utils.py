@@ -4,6 +4,7 @@ import sys
 sys.path.append('src')
 
 
+
 from nn import *
 from SnakeGame import *
 tf.keras.backend.set_floatx('float64')
@@ -46,6 +47,7 @@ def run_game(game, model, replay=False):
                 game.running = False
             else:
                 game.win.close()
+                print("Score:", game.score)
                 game.reset()
             
     
@@ -60,6 +62,7 @@ def train_step(game, models, mutation_rate, generation, population_size, max_gen
     # Loop over games    
     for i in range(population_size):
         model = models[i]
+        game.reset()
         
         # Run same model multiple times
         optimal_fitness = []
@@ -71,6 +74,7 @@ def train_step(game, models, mutation_rate, generation, population_size, max_gen
 
         # Determine final model. Either pick worst model as baseline, or average between the games.
         optimal_fitness = np.array(optimal_fitness)
+        print(optimal_fitness)
         
         
         if fitness_option == 'worst':
@@ -98,8 +102,8 @@ def train_step(game, models, mutation_rate, generation, population_size, max_gen
         print(">>> Generation: %3d/%4d --- Game: %3d/%3d --- score/steps/fitness: %5.1f/%7.1f/%9.2E" %(generation, max_generations, i, len(models), game.score, game.steps, game.fitness))
 
 
-    for j in range(int(population_size * 0.1)):
-        models_new = np.append(models_new, model_selection_top(models, fitnessList, 2))
+    for j in range(int(population_size * 0.05)):
+        models_new = np.append(models_new, model_selection_top(models, fitnessList, 1))
         
     # Pick two best parents to crossbreed. Then mutate.
     while len(models_new) < population_size:
