@@ -27,7 +27,7 @@ The model seems more stable using this configuration in comparison to measuring 
 Because of the random nature of initial spawn direction of the snake and randomly placed points, for each model I determine the fitness of the model based on the results of ten games.
 
 ### Mutation and crossbreeding
-
+In order to evolve the models I use mutation and crossbreeding to get new generations. First, crossbreeding takes two parents and randomly select neuron weights between the two to produce a new snake. The selection method uses a probability calculated based on the fitness score of each model with replacement. This means the best model is not necessarily chosen and the same models may be chosen twice. Next, all new snakes undergo mutation where each neuron weight has a chance to be set randomly. E.g. a mutation rate of 1% means each weight has a 1% chance to be randomly set.
 
 ## Results
 The following results are based on training for 1099 generations where each generation consists of 200 snakes, each run 10 times. The mutation rate is set at 1%, and the game board size of 10 by 10.
